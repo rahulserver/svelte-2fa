@@ -7,11 +7,12 @@
   function handleInput(event: Event): void {
     const target = event.target as HTMLInputElement;
     const newValue = target.value.slice(0, 1);
+    
+    // Always update value and trigger onInput, even if newValue is empty
+    value = newValue;
+    onInput(index);
 
     if (newValue) {
-      value = newValue;
-      onInput(index);
-
       // Move focus to the next field
       const nextInput = document.querySelector(
         `input[data-index="${index + 1}"]`
@@ -25,7 +26,7 @@
   function handleKeydown(event: KeyboardEvent): void {
     if (event.key === "Backspace") {
       if (value === "") {
-        // Move focus to the previous field if empty
+        // Only move to previous field if current field is empty
         const prevInput = document.querySelector(
           `input[data-index="${index - 1}"]`
         ) as HTMLInputElement;
@@ -33,7 +34,7 @@
           prevInput.focus();
         }
       } else {
-        // Clear current value
+        // If current field has a value, just clear it
         value = "";
         onInput(index);
       }
