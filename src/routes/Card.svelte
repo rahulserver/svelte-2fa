@@ -25,18 +25,22 @@
     }
   </script>
   
-  <div class="max-w-md mx-auto mt-20 p-6 bg-white rounded-lg shadow-md">
+  <div class="max-w-md mx-auto mt-20 p-8 bg-white rounded-xl shadow-lg">
     <!-- Row 1: Lock Icon -->
-    <LockIcon {lockState} />
+    <div class="flex justify-center mb-6">
+      <LockIcon {lockState} />
+    </div>
   
     <!-- Row 2: Title -->
-    <h2 class="text-center text-lg font-bold text-gray-700 mb-2">Easy Peasy</h2>
+    <h2 class="text-center text-2xl font-bold text-gray-800 mb-3">Easy Peasy</h2>
   
     <!-- Row 3: Description -->
-    <p class="text-center text-gray-500 mb-4">Enter 6-digit code from your two-factor authenticator app.</p>
+    <p class="text-center text-gray-600 mb-8 px-4">
+      Enter 6-digit code from your two-factor authenticator app.
+    </p>
   
     <!-- Row 4: Input Fields -->
-    <div class="flex justify-center space-x-2 mb-4">
+    <div class="flex justify-center gap-3 mb-8">
       {#each digits as digit, index}
         <InputField
           bind:value={digits[index]}
@@ -47,6 +51,8 @@
     </div>
   
     <!-- Row 5: Button -->
-    <Button {digitsLeft} {lockState} />
+    <div class="px-2">
+      <Button {digitsLeft} {lockState} />
+    </div>
   </div>
   
