@@ -32,15 +32,11 @@ cd svelte-2fa
 2. Install dependencies
 ```bash
 npm install
-# or
-yarn install
 ```
 
 3. Start the development server
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
 4. Open your browser and visit `http://localhost:5173`
@@ -49,8 +45,6 @@ yarn dev
 
 ```bash
 npm run build
-# or
-yarn build
 ```
 
 The built files will be in the `dist` directory.
@@ -59,8 +53,6 @@ The built files will be in the `dist` directory.
 
 ```bash
 npm run check
-# or
-yarn check
 ```
 
 ## Development
