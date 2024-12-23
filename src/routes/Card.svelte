@@ -40,7 +40,8 @@
       {#each digits as digit, index}
         <InputField
           bind:value={digits[index]}
-          on:input={() => handleInput(index)}
+          {index}
+          onInput={handleInput}
         />
       {/each}
     </div>

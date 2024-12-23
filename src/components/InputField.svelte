@@ -6,8 +6,8 @@
     function handleInput(event: Event): void {
       const target = event.target as HTMLInputElement;
       const newValue = target.value.slice(0, 1); // Ensure single digit
-      onInput(index);
       value = newValue;
+      onInput(index);
     }
   </script>
   
