@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { lockStore } from '../stores/lockStore';
-
   export let value: string = "";
   export let index: number;
   export let onInput: (index: number) => void;

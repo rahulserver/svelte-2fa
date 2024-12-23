@@ -32,7 +32,7 @@
     <!-- Row 4: Input Fields -->
     <div class="flex justify-center mb-12">
       <div class="flex gap-4">
-        {#each digits.slice(0, 3) as digit, index}
+        {#each digits.slice(0, 3) as _digit, index}
           <InputField
             bind:value={digits[index]}
             {index}
@@ -43,7 +43,7 @@
       </div>
       <div class="w-8"></div> <!-- Spacer -->
       <div class="flex gap-4">
-        {#each digits.slice(3) as digit, index}
+        {#each digits.slice(3) as _digit, index}
           <InputField
             bind:value={digits[index + 3]}
             index={index + 3}

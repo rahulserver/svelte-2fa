@@ -1,4 +1,4 @@
-import { writable, derived } from 'svelte/store';
+import { writable, type Writable } from 'svelte/store';
 
 type LockState = "default" | "correct" | "wrong";
 
@@ -8,7 +8,11 @@ interface LockStore {
   digitsLeft: number;
 }
 
-function createLockStore() {
+function createLockStore(): {
+  subscribe: Writable<LockStore>['subscribe'];
+  updateDigit: (index: number, value: string) => void;
+  reset: () => void;
+} {
   const { subscribe, set, update } = writable<LockStore>({
     digits: Array(6).fill(""),
     lockState: "default",
@@ -17,7 +21,7 @@ function createLockStore() {
 
   return {
     subscribe,
-    updateDigit: (index: number, value: string) => {
+    updateDigit: (index: number, value: string): void => {
       update(store => {
         // Validate digit
         const newValue = /^\d?$/.test(value) ? value : "";
@@ -41,7 +45,7 @@ function createLockStore() {
         };
       });
     },
-    reset: () => {
+    reset: (): void => {
       set({
         digits: Array(6).fill(""),
         lockState: "default",
