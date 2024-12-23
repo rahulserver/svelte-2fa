@@ -1,29 +1,17 @@
 <script lang="ts">
-    import LockIcon from '../components/LockIcon.svelte';
-    import InputField from '../components/InputField.svelte';
-    import Button from '../components/Button.svelte';
+  import { lockStore } from '../stores/lockStore';
+  import LockIcon from '../components/LockIcon.svelte';
+  import InputField from '../components/InputField.svelte';
+  import Button from '../components/Button.svelte';
   
-    let digits: string[] = Array(6).fill("");
-    let lockState: "default" | "correct" | "wrong" = "default";
-    let digitsLeft: number = 6;
-  
-    function handleInput(index: number): void {
-      if (!/^\d?$/.test(digits[index])) {
-        digits[index] = "";
-      }
-      digitsLeft = digits.filter((digit) => digit === "").length;
-  
-      if (digitsLeft === 0) {
-        lockState = validateCode(digits.join("")) ? "correct" : "wrong";
-      } else {
-        lockState = "default";
-      }
-    }
-  
-    function validateCode(code: string): boolean {
-      return code === "123456"; // Replace with real validation
-    }
-  </script>
+  $: digits = $lockStore.digits;
+  $: lockState = $lockStore.lockState;
+  $: digitsLeft = $lockStore.digitsLeft;
+
+  function handleInput(index: number): void {
+    lockStore.updateDigit(index, digits[index]);
+  }
+</script>
   
   <div class="max-w-xl mx-auto mt-20 p-12 bg-white rounded-2xl shadow-xl">
     <!-- Row 1: Lock Icon -->

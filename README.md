@@ -1,47 +1,100 @@
-# Svelte + TS + Vite
+# 2FA Input Component
 
-This template should help get you started developing with Svelte and TypeScript in Vite.
+A modern, accessible two-factor authentication input component built with Svelte, TypeScript, and TailwindCSS.
 
-## Recommended IDE Setup
+![2FA Input Demo](demo.gif)
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+## Features
 
-## Need an official Svelte framework?
+- 🎯 6-digit code input with automatic focus management
+- ⌨️ Full keyboard navigation support
+- 📋 Clipboard paste support
+- 🎨 Smooth animations and visual feedback
+- ♿ Accessibility-friendly
+- 📱 Responsive design
+- 🔒 Input validation
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+## Quick Start
 
-## Technical considerations
+### Prerequisites
 
-**Why use this over SvelteKit?**
+- Node.js (v16 or higher)
+- npm or yarn
 
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
+### Installation
 
-This template contains as little as possible to get started with Vite + TypeScript + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
-
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
-
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
-
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
-
-**Why include `.vscode/extensions.json`?**
-
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
-
-**Why enable `allowJs` in the TS template?**
-
-While `allowJs: false` would indeed prevent the use of `.js` files in the project, it does not prevent the use of JavaScript syntax in `.svelte` files. In addition, it would force `checkJs: false`, bringing the worst of both worlds: not being able to guarantee the entire codebase is TypeScript, and also having worse typechecking for the existing JavaScript. In addition, there are valid use cases in which a mixed codebase may be relevant.
-
-**Why is HMR not preserving my local component state?**
-
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/rixo/svelte-hmr#svelte-hmr).
-
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
-
-```ts
-// store.ts
-// An extremely simple external store
-import { writable } from 'svelte/store'
-export default writable(0)
+1. Clone the repository
+```bash
+git clone https://github.com/rahulserver/svelte-2fa.git
+cd svelte-2fa
 ```
+
+2. Install dependencies
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Start the development server
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+4. Open your browser and visit `http://localhost:5173`
+
+### Building for Production
+
+```bash
+npm run build
+# or
+yarn build
+```
+
+The built files will be in the `dist` directory.
+
+### Type Checking
+
+```bash
+npm run check
+# or
+yarn check
+```
+
+## Development
+
+The project uses:
+- Svelte 5
+- TypeScript
+- Vite
+- TailwindCSS
+- Vitest for testing
+
+## Project Structure
+
+```
+src/
+├── components/         # Reusable components
+│   ├── Button.svelte
+│   ├── InputField.svelte
+│   └── LockIcon.svelte
+├── stores/            # State management
+│   └── lockStore.ts
+├── routes/            # Page components
+│   └── Card.svelte
+└── App.svelte         # Root component
+```
+
+## License
+
+MIT
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
