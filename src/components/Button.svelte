@@ -4,11 +4,13 @@
   </script>
   
   <button
-    class={`w-full py-2 rounded-md
+    class={`w-full py-4 rounded-xl text-xl font-medium transition-colors duration-200
       ${
         digitsLeft === 0
-          ? lockState === "wrong" ? "bg-red-500 text-white" : "bg-blue-500 text-white"
-          : "bg-gray-300 text-gray-500"
+          ? lockState === "wrong" 
+            ? "bg-red-500 hover:bg-red-600 text-white" 
+            : "bg-blue-500 hover:bg-blue-600 text-white"
+          : "bg-gray-200 text-gray-500 cursor-not-allowed"
       }`}
     disabled={digitsLeft !== 0}
   >
